@@ -101,13 +101,13 @@ function generateFen(pieceString, playerColor) {
     const files = "ABCDEFGH";
     let whiteRooks = "";
     for (let i = 0; i < baseString.length; i++) {
-        if (s[i] === 'r') {
+        if (baseString[i] === 'r') { // Scan the new 's'--baseString
             whiteRooks += files[i];
         }
     }
     const castlingRights = whiteRooks + whiteRooks.toLowerCase();
     
-    const piecePlacement = `${blackRow}/pppppppp/8/8/8/8/PPPPPPPP/${whiteRow}`;
+    const piecePlacement = `${baseString}/pppppppp/8/8/8/8/PPPPPPPP/${baseString.toUpperCase()}`;
     return `${piecePlacement} w ${castlingRights || '-'} - 0 1`;
 }
 
