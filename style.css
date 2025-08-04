@@ -1,0 +1,132 @@
+:root {
+  /* Define colors as variables for easy theming */
+  --bg: #f0f2f5;
+  --text: #1c1e21;
+  --card: #ffffff;
+  --border: #dddfe2;
+  --btn-bg: #1877f2;
+  --btn-bg-hover: #166fe5;
+  --btn-text: #ffffff;
+  --btn-disabled-bg: #a0bdf5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Redefine variables for dark mode */
+    --bg: #121212;
+    --text: #e4e4e4;
+    --card: #1e1e1e;
+    --border: #444;
+    --btn-bg: #2b78e4;
+    --btn-bg-hover: #236ad1;
+    --btn-disabled-bg: #223e6d;
+  }
+}
+
+/* General Body & Font Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Main App Container */
+#app-container {
+    background-color: var(--card);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Input & Form Styling */
+.input-section, .output-section {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+label, legend {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--card);
+    color: var(--text);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+/* Button Styling */
+button {
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--btn-text);
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:not(:disabled):hover {
+    background-color: var(--btn-bg-hover);
+}
+
+button:disabled {
+    background-color: var(--btn-disabled-bg);
+    cursor: not-allowed;
+}
+
+#generate-btn {
+    width: 100%;
+}
+
+/* Output Area */
+.output-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#copy-btn {
+    width: auto;
+    flex-shrink: 0;
+    padding: 0 1.2rem;
+}
+
+/* Error Message */
+#error-message {
+    color: #fa383e;
+    min-height: 1.2rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}

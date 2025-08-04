@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Chess960 FEN Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module" defer></script>
+</head>
+<body>
+    <main id="app-container">
+        <h1>Chess960 FEN Generator</h1>
+        
+        <form id="fen-form">
+            <section class="input-section">
+                <label for="piece-input">Enter your back-rank pieces:</label>
+                <input type="text" id="piece-input" maxlength="8" placeholder="e.g., rnkbnqrb" autocomplete="off">
+                
+                <fieldset>
+                    <legend>I am playing as:</legend>
+                    <div>
+                        <input type="radio" id="color-white" name="player-color" value="white" checked>
+                        <label for="color-white">⚪ White</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="color-black" name="player-color" value="black">
+                        <label for="color-black">⚫ Black</label>
+                    </div>
+                </fieldset>
+            </section>
+    
+            <button id="generate-btn" type="submit" disabled>Generate FEN</button>
+            <div id="error-message" role="alert" aria-live="polite"></div>
+        </form>
+
+        <section class="output-section">
+            <label for="fen-output">Generated FEN:</label>
+            <div class="output-wrapper">
+                <textarea id="fen-output" readonly></textarea>
+                <button id="copy-btn" type="button" disabled>Copy</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
