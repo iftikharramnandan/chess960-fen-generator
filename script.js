@@ -91,9 +91,13 @@ function validateInput(str) {
 
 function generateFen(pieceString, playerColor) {
     const s = pieceString.toLowerCase();
+    console.log('Original input (s):', s);
+  
     const baseString = (playerColor === 'black') 
         ? s.split('').reverse().join('') 
         : s;
+    console.log('BaseString after reversal:', baseString);
+    console.log('Player color:', playerColor);
 
     const blackRow = baseString.toLowerCase();
     const whiteRow = baseString.toUpperCase();
@@ -102,13 +106,18 @@ function generateFen(pieceString, playerColor) {
     let whiteRooks = "";
     for (let i = 0; i < baseString.length; i++) {
         if (baseString[i] === 'r') { // Scan the new 's'--baseString
+            console.log(`Found rook at position ${i}, file ${files[i]}`);
             whiteRooks += files[i];
         }
     }
+    console.log('White rooks:', whiteRooks);
     const castlingRights = whiteRooks + whiteRooks.toLowerCase();
-    
+    console.log('Final castling rights:', castlingRights);
+
     const piecePlacement = `${baseString}/pppppppp/8/8/8/8/PPPPPPPP/${baseString.toUpperCase()}`;
+    console.log('Piece placement:', piecePlacement);
     return `${piecePlacement} w ${castlingRights || '-'} - 0 1`;
+
 }
 
 // 5. Service Worker Registration for PWA/Offline capability
